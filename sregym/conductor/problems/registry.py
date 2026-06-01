@@ -75,6 +75,9 @@ from sregym.conductor.problems.service_port_conflict import ServicePortConflict
 from sregym.conductor.problems.service_wrong_pod_selection_hotel_reservation import (
     ServiceWrongPodSelectionHotelReservation,
 )
+from sregym.conductor.problems.serviceaccount_token_stale_cache import (
+    ServiceAccountTokenStaleCacheHotelReservation,
+)
 from sregym.conductor.problems.sidecar_port_conflict import SidecarPortConflict
 from sregym.conductor.problems.silent_data_corruption import SilentDataCorruption
 from sregym.conductor.problems.stale_coredns_config import StaleCoreDNSConfig
@@ -266,6 +269,7 @@ class ProblemRegistry:
 
             "admission_webhook_tls_mismatch_hotel_reservation": lambda: AdmissionWebhookTLSMismatch(app_name="hotel_reservation", faulty_service="recommendation"),
             "cronjob_sidecar_blocks_completion_hotel_reservation": CronJobSidecarBlocksCompletionHotelReservation,
+            "serviceaccount_token_stale_cache_hotel_reservation": ServiceAccountTokenStaleCacheHotelReservation,
             # ==================== MULTIPLE INDEPENDENT FAILURES ====================
             # "port_misconfig_revoke_auth_wrong_svc_selector": \
             #     lambda: MultipleIndependentFailures(problems=[
