@@ -72,6 +72,9 @@ from sregym.conductor.problems.rolling_update_misconfigured import RollingUpdate
 from sregym.conductor.problems.scale_pod import ScalePodSocialNet
 from sregym.conductor.problems.service_dns_resolution_failure import ServiceDNSResolutionFailure
 from sregym.conductor.problems.service_port_conflict import ServicePortConflict
+from sregym.conductor.problems.service_session_affinity_missing_local_state import (
+    ServiceSessionAffinityMissingLocalStateHotelReservation,
+)
 from sregym.conductor.problems.service_wrong_pod_selection_hotel_reservation import (
     ServiceWrongPodSelectionHotelReservation,
 )
@@ -266,6 +269,9 @@ class ProblemRegistry:
 
             "admission_webhook_tls_mismatch_hotel_reservation": lambda: AdmissionWebhookTLSMismatch(app_name="hotel_reservation", faulty_service="recommendation"),
             "cronjob_sidecar_blocks_completion_hotel_reservation": CronJobSidecarBlocksCompletionHotelReservation,
+            "service_session_affinity_missing_local_state_hotel_reservation": (
+                ServiceSessionAffinityMissingLocalStateHotelReservation
+            ),
             # ==================== MULTIPLE INDEPENDENT FAILURES ====================
             # "port_misconfig_revoke_auth_wrong_svc_selector": \
             #     lambda: MultipleIndependentFailures(problems=[
